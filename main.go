@@ -8,11 +8,9 @@ import (
 )
 
 // @title ThemeWeave API
-// @version 1.0
+// @version 0.0
 // @description This is the backend API for the ThemeWeave website builder.
-// @contact.name API Support
-// @contact.url http://www.swagger.io/support
-// @contact.email support@themeweave.com
+// @contact.email UndeadTokenArt@gmail.com
 // @license.name MIT
 // @license.url https://opensource.org/licenses/MIT
 // @host localhost:8080
@@ -80,4 +78,3 @@ func main() {
 		log.Fatalf("Failed to run server: %v", err)
 	}
 }
-
