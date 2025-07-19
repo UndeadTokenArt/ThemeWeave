@@ -1,3 +1,81 @@
+/*
+Package elements provides a set of customizable HTML elements for use in ThemeWeave.
+
+It includes the following elements:
+
+- DivBlock: A basic div container with customizable ID, class, style, and content.
+	- NewDivBlock(id, class, style, content string) DivBlock
+	- (d DivBlock) Render() template.HTML
+
+- TextBlock: A text element (h1, h2, p, etc.) with customizable properties.
+	- NewTextBlock(id, class, style, content, tag string) TextBlock
+	- (t TextBlock) Render() template.HTML
+
+- ListBlock: An ordered or unordered list with customizable properties.
+	- NewListBlock(id, class, style string, items []string, ordered bool) ListBlock
+	- (l ListBlock) Render() template.HTML
+
+- QuoteBlock: A blockquote element with customizable content and citation.
+	- NewQuoteBlock(id, class, style, content, cite string) QuoteBlock
+	- (q QuoteBlock) Render() template.HTML
+
+- ButtonBlock: A clickable button element with a link.
+	- NewButtonBlock(id, class, style, text, link string) ButtonBlock
+	- (b ButtonBlock) Render() template.HTML
+
+- ImageElement: An image element with optional link and caption.
+	- NewImageElement(id, class, style, src, alt, caption, link string) ImageElement
+	- (i ImageElement) Render() template.HTML
+
+- VideoElement: A video element that supports different video types (e.g., "video/mp4", "video/youtube").
+	- NewVideoElement(id, class, style, src, videoType, width, height, caption string) VideoElement
+	- (v VideoElement) Render() template.HTML
+
+- SpacerElement: A spacer element used to create vertical space.
+	- NewSpacerElement(id, class, style, height string) SpacerElement
+	- (s SpacerElement) Render() template.HTML
+
+- GalleryElement: A gallery of images with grid or carousel layout options.
+	- NewGalleryElement(id, class, style string, images []ImageElement, layout string, columns int) GalleryElement
+	- (g GalleryElement) Render() template.HTML
+
+- BackgroundElement: An element with customizable background (color, gradient, image, or video).
+	- NewBackgroundElement(id, class, style, contentType string, color string, gradient string, image string, video VideoElement, content string) BackgroundElement
+	- (b BackgroundElement) Render() template.HTML
+
+- SocialLinksElement: A set of social media links with icons.
+	- NewSocialLinksElement(id, class, style string, links map[string]string, iconSize string) SocialLinksElement
+	- (s SocialLinksElement) Render() template.HTML
+
+- FormElement: A customizable form with various field types.
+	- NewFormElement(id, class, style string, fields []FormField, action, method, submitButtonText string) FormElement
+	- (f FormElement) Render() template.HTML
+
+- MapElement: An embedded map element using an iframe.
+	- NewMapElement(id, class, style, src, width, height string) MapElement
+	- (m MapElement) Render() template.HTML
+
+- AccordionElement: An accordion element for collapsible content sections.
+	- NewAccordionElement(id, class, style string, items []AccordionItem) AccordionElement
+	- (a AccordionElement) Render() template.HTML
+
+- TabsElement: A tabbed interface for displaying content in separate tabs.
+	- NewTabsElement(id, class, style string, tabs []TabItem) TabsElement
+	- (t TabsElement) Render() template.HTML
+
+- CounterElement: An animated counter that counts from a start value to an end value.
+	- NewCounterElement(id, class, style string, start, end, duration int, prefix, suffix string) CounterElement
+	- (c CounterElement) Render() template.HTML
+
+- ProgressBarElement: A progress bar element to visually represent a percentage.
+	- NewProgressBarElement(id, class, style string, progress int, height, color string) ProgressBarElement
+	- (p ProgressBarElement) Render() template.HTML
+
+- TestimonialElement: An element to display customer testimonials.
+	- NewTestimonialElement(id, class, style, quote, author, authorImage, company string) TestimonialElement
+	- (t TestimonialElement) Render() template.HTML
+*/
+
 package elements
 
 import (
