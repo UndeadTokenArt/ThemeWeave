@@ -21,6 +21,9 @@ func main() {
 	// Use gin.ReleaseMode() for production to disable debug output
 	router := gin.Default()
 
+	// Load HTML templates
+	router.LoadHTMLGlob("ThemeweaveBackend/templates/*")
+
 	// --- Middleware ---
 	// Add any global middleware here, e.g., CORS, logging, authentication
 	// For local development, you might need CORS to allow frontend to connect
@@ -39,6 +42,13 @@ func main() {
 	// Group routes under a common prefix, e.g., /api/v1
 	v1 := router.Group("/api/v1")
 	{
+
+		v1.GET("/index", func(c *gin.Context) {
+			c.HTML(http.StatusOK, "WebInterface.tmpl", gin.H{
+				"Title": "Welcome to the ThemeWeave API!",
+			})
+		})
+
 		// Basic health check endpoint
 		v1.GET("/health", func(c *gin.Context) {
 			c.JSON(http.StatusOK, gin.H{

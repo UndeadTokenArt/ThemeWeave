@@ -724,7 +724,7 @@ func (t TestimonialElement) Render() template.HTML {
 
 	authorImageHTML := ""
 	if t.AuthorImage != "" {
-		authorImageHTML = fmt.Sprintf(`<img src="%s" alt="%s" style="width: 50px; height: 50px; border-radius: 50%;">`, t.AuthorImage, t.Author)
+		authorImageHTML = fmt.Sprintf(`<img src="%s" alt="%s" style="width: 50px; height: 50px; border-radius: 50;">`, t.AuthorImage, t.Author)
 	}
 
 	html := fmt.Sprintf(`<blockquote id="%s" class="%s" style="%s">%s<br>%s%s</blockquote>`, t.ID, t.Class, t.Style, t.Quote, authorImageHTML, authorInfo)
