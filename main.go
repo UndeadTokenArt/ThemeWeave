@@ -23,6 +23,7 @@ func main() {
 	router := gin.Default()
 
 	// Load HTML templates
+	router.Static("/api/v1/cssThemes", "./ThemeweaveBackend/cssThemes") // Serve static CSS files
 	router.LoadHTMLGlob("ThemeweaveBackend/templates/*")
 
 	// --- Middleware ---

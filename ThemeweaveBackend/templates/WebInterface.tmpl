@@ -1,36 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <style type="text/css">
-        body {
-            display : flex;
-            flex-direction: row;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        sidebar {
-            flex-direction: column;
-            width: 200px;
-            float: left;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-        content {
-            flex-direction: column;
-            margin-left: 220px;
-            padding: 20px;
-        }
-        header h1 {
-            color: #333;
-        }
-        list.heiarchyList {
-            list-style-type: disc;
-            padding: 4px;
-        }
-        list.heiarchyList li {
-            margin-bottom: 10px;
-        }
-    </style>
+    {{ .Style }}
 </head>
 <body>
     <sidebar>

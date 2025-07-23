@@ -1,6 +1,8 @@
 package handlers
 
 import (
+	"fmt"
+	"html/template"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -15,5 +17,11 @@ func HandleIndex(c *gin.Context) {
 		"Title":        "Heirarchy List",
 		"Message":      "Welcome to ThemeWeave!",
 		"Heirchierchy": olList,
+		"Style":        template.HTML(getStyle("default")),
 	})
+}
+
+func getStyle(t string) string {
+	styleLink := "/api/v1/cssThemes/" + t + ".css"
+	return fmt.Sprintf(`<link rel="stylesheet" type="text/css" href="%s">`, styleLink)
 }
