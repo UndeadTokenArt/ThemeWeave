@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/api/handlers"
 	"github.com/gin-gonic/gin"
 )
 
@@ -43,11 +44,7 @@ func main() {
 	v1 := router.Group("/api/v1")
 	{
 
-		v1.GET("/index", func(c *gin.Context) {
-			c.HTML(http.StatusOK, "WebInterface.tmpl", gin.H{
-				"Title": "Welcome to the ThemeWeave API!",
-			})
-		})
+		v1.GET("/index", handlers.HandleIndex) // Serve the index page
 
 		// Basic health check endpoint
 		v1.GET("/health", func(c *gin.Context) {

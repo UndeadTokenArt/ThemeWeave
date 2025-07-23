@@ -76,7 +76,7 @@ It includes the following elements:
 	- (t TestimonialElement) Render() template.HTML
 */
 
-package elements
+package handlers
 
 import (
 	"fmt"
