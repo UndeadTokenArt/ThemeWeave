@@ -1,0 +1,18 @@
+{
+    "user_id": 1,
+    "name": "Test Website",
+    "theme": "modern",
+    "color_scheme": "#2c3e50,#ecf0f1,#3498db",
+    "main_body": [
+        "Welcome to our website!",
+        "We offer amazing services.",
+        "Check out our portfolio."
+    ],
+    "call_to_action": [
+        "Sign up now!",
+        "Get 20% off today!",
+        "Contact us for more information"
+    ],
+    "header_content": "Welcome to Test Website - Your Digital Solution",
+    "footer_content": "© 2025 Test Website. All rights reserved."
+}

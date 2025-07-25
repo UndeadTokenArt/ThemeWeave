@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/api/handlers"
+	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/database"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,6 +19,8 @@ import (
 // @BasePath /api/v1
 
 func main() {
+
+	database.InitDB() // Initialize the database connection
 	// Initialize the Gin router
 	// Use gin.ReleaseMode() for production to disable debug output
 	router := gin.Default()
