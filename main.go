@@ -63,38 +63,36 @@ func main() {
 
 	// using the testing package and the json file in testing to create a post request to the test endpoint and pass that through the context
 
+	// This is the main page of the website, it will be served at the root path
+	router.GET("/", handlers.HandleIndex)
+
 	// --- API Routes ---
 	// Group API routes under /api/v1
 	v1 := router.Group("/api/v1")
 
-	{
-
-		v1.GET("/index", handlers.HandleIndex)
-
-		// Basic health check endpoint
-		v1.GET("/health", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"status":  "ok",
-				"message": "ThemeWeave backend is running!",
-			})
+	// Basic health check endpoint
+	v1.GET("/health", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"status":  "ok",
+			"message": "ThemeWeave backend is running!",
 		})
+	})
 
-		// Placeholder for future theme-related endpoints
-		v1.GET("/themes", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message": "Themes endpoint - coming soon!",
-				"themes":  []string{"default", "minimal", "dark"}, // Example themes
-			})
+	// Placeholder for future theme-related endpoints
+	v1.GET("/themes", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "Themes endpoint - coming soon!",
+			"themes":  []string{"default", "minimal", "dark"}, // Example themes
 		})
+	})
 
-		// Placeholder for future element-related endpoints
-		v1.GET("/elements", func(c *gin.Context) {
-			c.JSON(http.StatusOK, gin.H{
-				"message":  "Elements endpoint - coming soon!",
-				"elements": []string{"text_block", "image_gallery", "button", "hero_section"}, // Example elements
-			})
+	// Placeholder for future element-related endpoints
+	v1.GET("/elements", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message":  "Elements endpoint - coming soon!",
+			"elements": []string{"text_block", "image_gallery", "button", "hero_section"}, // Example elements
 		})
-	}
+	})
 
 	// --- Start the server ---
 	// Listen and serve on port 8080
