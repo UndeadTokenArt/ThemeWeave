@@ -9,6 +9,17 @@ import (
 	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/database"
 )
 
+func RunTests() {
+	fmt.Println("Running tests...")
+
+	// Test creating a website entry from JSON
+	if err := CreateWebsiteEntry(); err != nil {
+		fmt.Printf("Error creating website entry: %v\n", err)
+	} else {
+		fmt.Println("Website entry created successfully.")
+	}
+}
+
 // CheckCreateWebsiteEntry checks if a website entry can be created from a JSON file
 func CreateWebsiteEntry() error {
 	// Read the JSON file

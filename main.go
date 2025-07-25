@@ -1,11 +1,13 @@
 package main
 
 import (
+	"flag"
 	"log"
 	"net/http"
 
 	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/api/handlers"
 	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/database"
+	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/tests"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,10 +21,12 @@ import (
 // @BasePath /api/v1
 
 func main() {
+	// Initialize the database connection
+	log.Println("Initializing database connection...")
+	database.InitDB()
 
-	database.InitDB() // Initialize the database connection
 	// Initialize the Gin router
-	// Use gin.ReleaseMode() for production to disable debug output
+	log.Println("Initializing Gin router...")
 	router := gin.Default()
 
 	// Load HTML templates
@@ -31,7 +35,6 @@ func main() {
 
 	// --- Middleware ---
 	// Add any global middleware here, e.g., CORS, logging, authentication
-	// For local development, you might need CORS to allow frontend to connect
 	router.Use(func(c *gin.Context) {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*") // Allow all origins for development
 		c.Writer.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
@@ -43,12 +46,30 @@ func main() {
 		c.Next()
 	})
 
+	// --- check for testing flag  ---
+	runTests := flag.Bool("testing", false, "Run tests before starting the server")
+	flag.Parse()
+
+	if *runTests {
+		log.Println("Running tests...")
+		tests.RunTests()
+	} else {
+		log.Println("Skipping tests, starting server...")
+	}
+
+	// --- testing endpoints ---
+	testing := router.Group("/testing")                        // Testing group for development purposes
+	testing.POST("/createClient", handlers.HandleCreateClient) // Testing endpoint for creating a new client (website)
+
+	// using the testing package and the json file in testing to create a post request to the test endpoint and pass that through the context
+
 	// --- API Routes ---
-	// Group routes under a common prefix, e.g., /api/v1
+	// Group API routes under /api/v1
 	v1 := router.Group("/api/v1")
+
 	{
 
-		v1.GET("/index", handlers.HandleIndex) // Serve the index page
+		v1.GET("/index", handlers.HandleIndex)
 
 		// Basic health check endpoint
 		v1.GET("/health", func(c *gin.Context) {
@@ -73,13 +94,6 @@ func main() {
 				"elements": []string{"text_block", "image_gallery", "button", "hero_section"}, // Example elements
 			})
 		})
-
-		// You can add more routes here for:
-		// - User authentication (login, register)
-		// - Website project management (create, save, load)
-		// - Theme customization options
-		// - Element configuration
-		// - Asset uploads
 	}
 
 	// --- Start the server ---
