@@ -2,7 +2,7 @@
     "user_id": 1,
     "name": "Test Website",
     "theme": "modern",
-    "color_scheme": "#2c3e50,#ecf0f1,#3498db",
+    "color_scheme": "dark",
     "main_body": [
         "Welcome to our website!",
         "We offer amazing services.",

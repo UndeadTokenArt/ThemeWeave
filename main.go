@@ -61,7 +61,6 @@ func main() {
 	testing := router.Group("/testing")                        // Testing group for development purposes
 	testing.POST("/createClient", handlers.HandleCreateClient) // Testing endpoint for creating a new client (website)
 
-	// using the testing package and the json file in testing to create a post request to the test endpoint and pass that through the context
 
 	// This is the main page of the website, it will be served at the root path
 	router.GET("/", handlers.HandleIndex)
