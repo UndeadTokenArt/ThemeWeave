@@ -2,23 +2,33 @@ package handlers
 
 import (
 	"fmt"
-	"html/template"
 	"net/http"
 
 	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/database"
 	"github.com/gin-gonic/gin"
 )
 
-func HandleIndex(c *gin.Context) {
-	firstE := []string{"element1", "element2", "element3"}
-	secE := []string{"itemA", "itemB", "itemC"}
-	olList := [][]string{firstE, secE}
 
-	c.HTML(http.StatusOK, "WebInterface.tmpl", gin.H{
-		"Title":        database.Website{}.Name,
-		"Message":      database.Website{}.HeaderContent,
-		"Heirchierchy": olList,
-		"Style":        template.HTML(database.Website{}.ColorScheme),
+// I should be using the context to pass the client ID, but for simplicity, I'm using a hardcoded value here.
+func HandleIndex(c *gin.Context, clientID uint) {
+	client, err := database.GetWebsitefromDB(clientID)
+	if err != nil {
+		c.HTML(http.StatusInternalServerError, "index.html", gin.H{
+			"Title":   "Internal Server Error",
+			"Message": "Failed to retrieve client information.",
+		})
+		return
+	}
+	if client == nil {
+		c.HTML(http.StatusNotFound, "index.html", gin.H{
+			"Title":   "Client Not Found",
+			"Message": "The requested client does not exist.",
+		})
+		return
+	}
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"Title":   client.Name,
+		"Message": client.MainBody,
 	})
 }
 

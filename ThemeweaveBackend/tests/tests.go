@@ -46,3 +46,4 @@ func CreateWebsiteEntry() error {
 	fmt.Printf("Successfully parsed website data: %+v\n", website)
 	return nil
 }
+
