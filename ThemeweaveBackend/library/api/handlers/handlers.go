@@ -8,10 +8,28 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+func HandleIndex(c *gin.Context) {
+	// Render the index page with a welcome message
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"Title":   "Welcome to ThemeWeave",
+		"Message": "This is the ThemeWeave backend. Use the API to manage your themes and websites.",
+	})
+}
 
 // I should be using the context to pass the client ID, but for simplicity, I'm using a hardcoded value here.
-func HandleIndex(c *gin.Context, clientID uint) {
-	client, err := database.GetWebsitefromDB(clientID)
+func HandleClient(c *gin.Context) {
+
+	// get the client ID from the context or request parameters
+	dbID, err := c.Get("clientID")
+	if err != nil {
+		c.HTML(http.StatusBadRequest, "index.html", gin.H{
+			"Title":   "Bad Request",
+			"Message": "Client ID is missing or invalid.",
+		})
+		return
+	}
+
+	client, err := database.GetWebsitefromDB(dbID)
 	if err != nil {
 		c.HTML(http.StatusInternalServerError, "index.html", gin.H{
 			"Title":   "Internal Server Error",

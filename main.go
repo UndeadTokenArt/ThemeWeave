@@ -63,7 +63,11 @@ func main() {
 
 
 	// This is the main page of the website, it will be served at the root path
+
+	
 	router.GET("/", handlers.HandleIndex)
+	router.GET("/client/:clientID", handlers.HandleClient) // Serve client-specific pages
+	
 
 	// --- API Routes ---
 	// Group API routes under /api/v1
