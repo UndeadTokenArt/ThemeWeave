@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portland Metro Real Estate | {{ .AgentName }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), #10b981), url("{{ .HeroImage }}");
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            border-bottom: 2px solid #10B981; /* Emerald-500 */
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                <a href="#">{{ .AgentName }}</a>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-gray-600 hover:text-emerald-500 transition duration-300">About</a>
+                <a href="#services" class="text-gray-600 hover:text-emerald-500 transition duration-300">Services</a>
+                <a href="#expertise" class="text-gray-600 hover:text-emerald-500 transition duration-300">Expertise</a>
+                <a href="#contact" class="bg-emerald-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-emerald-600 transition duration-300">Contact Me</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4">
+            <a href="#about" class="block py-2 text-gray-600 hover:text-emerald-500">About</a>
+            <a href="#services" class="block py-2 text-gray-600 hover:text-emerald-500">Services</a>
+            <a href="#expertise" class="block py-2 text-gray-600 hover:text-emerald-500">Expertise</a>
+            <a href="#contact" class="block mt-2 bg-emerald-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-emerald-600 w-full text-center">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white h-[70vh] flex items-center">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Structured Strategy, Superior Results.</h1>
+            <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto">Your expert guide to Portland's real estate market, delivering success with precision and care.</p>
+            <a href="#contact" class="bg-white text-emerald-600 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition duration-300">Begin Your Journey</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3">
+                    <img src="{{ .AgentPortrait }}" alt="Real Estate Agent Portrait" class="rounded-lg shadow-2xl w-full">
+                </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold mb-4 section-title inline-block">A Foundation of Experience & Trust</h2>
+                    <p class="text-gray-600 mb-4 text-lg">With over <strong>7 years</strong> dedicated to the Portland metro area's dynamic real estate landscape, I've had the privilege of navigating <strong>hundreds of transactions</strong> to successful conclusions. My approach is built on a dual commitment: the structural integrity of a well-executed plan and the soft touch of personalized, attentive service.</p>
+                    <p class="text-gray-600 mb-6 text-lg">I'm known for my creative problem-solving and an unwavering dedication to finding solutions for even the most complex challenges. Whether you are buying your first home or selling a luxury property, my goal is to ensure your experience is seamless, satisfying, and exceeds your expectations.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-emerald-600">7+</h3>
+                            <p class="text-gray-700">Years of Experience</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-emerald-600">300+</h3>
+                            <p class="text-gray-700">Successful Transactions</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold text-emerald-600">99%</h3>
+                            <p class="text-gray-700">Client Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 section-title inline-block">Comprehensive Real Estate Services</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Buyer Representation -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="mb-4">
+                        <svg class="w-16 h-16 mx-auto text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">For Buyers</h3>
+                    <p class="text-gray-600">Careful guidance from the first showing to the final closing. I'll help you find the perfect home and negotiate the best possible terms.</p>
+                </div>
+                <!-- Seller Representation -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="mb-4">
+                        <svg class="w-16 h-16 mx-auto text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">For Sellers</h3>
+                    <p class="text-gray-600">Strategic marketing and expert positioning to maximize your property's value and attract qualified buyers for a swift, profitable sale.</p>
+                </div>
+                <!-- Transaction Expertise -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                     <div class="mb-4">
+                        <svg class="w-16 h-16 mx-auto text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Diverse Transactions</h3>
+                    <p class="text-gray-600">Extensive experience in all residential transactions, from single-family homes and condos to luxury estates and new construction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-6">
+             <h2 class="text-3xl font-bold text-center mb-12 section-title inline-block border-emerald-400">Navigating Complexity with Confidence</h2>
+             <div class="max-w-4xl mx-auto text-center">
+                <p class="text-lg text-gray-300 mb-8">The real estate market is in constant flux. Success requires more than just market knowledge; it demands technical skill, foresight, and a proactive approach. I am deeply invested in staying ahead of the curve, continuously educating myself on the latest laws, regulations, and market trends that are essential to protecting your interests.</p>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8">
+                    <div class="bg-gray-700 p-6 rounded-lg flex items-center gap-4">
+                        <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <span class="font-semibold">Highly Technical & Informed</span>
+                    </div>
+                    <div class="bg-gray-700 p-6 rounded-lg flex items-center gap-4">
+                         <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg>
+                        <span class="font-semibold">Collaborative Network</span>
+                    </div>
+                     <div class="bg-gray-700 p-6 rounded-lg flex items-center gap-4">
+                         <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <span class="font-semibold">Seasoned Support Team</span>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">Let's Discuss Your Future</h2>
+            <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Reach out today for a confidential consultation to discuss your real estate goals.</p>
+            <div class="max-w-xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
+                <form id="contactForm" action="/contact" method="POST">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-500" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-500" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-emerald-500" required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" id="submitBtn" class="bg-emerald-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-emerald-600 transition duration-300">Send Message</button>
+                    </div>
+                </form>
+                <div id="responseMessage" class="mt-4 text-center hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-2xl font-bold mb-2">{{ .AgentName }}</a></p>
+            <p class="text-gray-400 mb-4">Portland Metro Real Estate Specialist</p>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                <a href="#" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg></a>
+                <a href="#" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.182-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.545 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.415-1.717-4.068-4.176-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.525-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.906.446 2.91.446 5.523 0 10-4.477 10-10S17.523 2 12 2z" clip-rule="evenodd" /></svg></a>
+            </div>
+            <p class="text-sm text-gray-500">&copy; 2025 {{ .AgentName }}</a> Real Estate. All Rights Reserved. | [Brokerage Name]</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let i = 0; i < mobileMenuLinks.length; i++) {
+            mobileMenuLinks[i].addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const responseMessage = document.getElementById('responseMessage');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Disable submit button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            responseMessage.className = 'mt-4 text-center hidden';
+            
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch('/contact', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    // Success
+                    responseMessage.textContent = result.message;
+                    responseMessage.className = 'mt-4 text-center text-green-600 font-semibold';
+                    contactForm.reset(); // Clear the form
+                } else {
+                    // Error
+                    responseMessage.textContent = result.error || 'An error occurred. Please try again.';
+                    responseMessage.className = 'mt-4 text-center text-red-600 font-semibold';
+                }
+            } catch (error) {
+                responseMessage.textContent = 'Network error. Please check your connection and try again.';
+                responseMessage.className = 'mt-4 text-center text-red-600 font-semibold';
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+    </script>
+</body>
+</html>

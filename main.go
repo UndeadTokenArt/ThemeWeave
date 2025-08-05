@@ -21,6 +21,11 @@ import (
 // @BasePath /api/v1
 
 func main() {
+	// Load environment variables
+	if err := database.LoadEnv(); err != nil {
+		log.Fatalf("Error loading environment variables: %v", err)
+	}
+
 	// Initialize the database connection
 	log.Println("Initializing database connection...")
 	database.InitDB()
@@ -30,7 +35,8 @@ func main() {
 	router := gin.Default()
 
 	// Load HTML templates
-	router.Static("/api/v1/cssThemes", "./ThemeweaveBackend/cssThemes") // Serve static CSS files
+	router.Static("/api/v1/cssThemes", "./ThemeweaveBackend/cssThemes")   // Serve static CSS files
+	router.Static("/api/v1/static", "./ThemeweaveBackend/library/static") // Serve static files
 	router.LoadHTMLGlob("ThemeweaveBackend/templates/*")
 
 	// --- Middleware ---
@@ -61,9 +67,12 @@ func main() {
 	testing := router.Group("/testing")                        // Testing group for development purposes
 	testing.POST("/createClient", handlers.HandleCreateClient) // Testing endpoint for creating a new client (website)
 
-
 	// This is the main page of the website, it will be served at the root path
 	router.GET("/", handlers.HandleIndex)
+	router.GET("/LandingPage", handlers.HandleLandingPage) // Redirect /index to the main page
+
+	// Contact form submission
+	router.POST("/contact", handlers.HandleContactForm)
 
 	// --- API Routes ---
 	// Group API routes under /api/v1
