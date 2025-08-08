@@ -32,6 +32,13 @@ go.work.sum
 *.db
 *.sqlite
 
+# images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+
 ThemeWeave/ThemeweaveBackend/library/static/images
 # Editor/IDE
 # .idea/
