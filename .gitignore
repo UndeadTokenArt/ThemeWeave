@@ -32,6 +32,7 @@ go.work.sum
 *.db
 *.sqlite
 
+ThemeWeave/ThemeweaveBackend/library/static/images
 # Editor/IDE
 # .idea/
 # .vscode/

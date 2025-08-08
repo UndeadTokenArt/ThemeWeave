@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/joho/godotenv"
+
 	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/api/handlers"
 	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/library/database"
 	"github.com/UndeadTokenArt/ThemeWeave/ThemeweaveBackend/tests"
@@ -22,7 +24,7 @@ import (
 
 func main() {
 	// Load environment variables
-	if err := database.LoadEnv(); err != nil {
+	if err := godotenv.Load(); err != nil {
 		log.Fatalf("Error loading environment variables: %v", err)
 	}
 
@@ -69,7 +71,7 @@ func main() {
 
 	// This is the main page of the website, it will be served at the root path
 	router.GET("/", handlers.HandleIndex)
-	router.GET("/LandingPage", handlers.HandleLandingPage) // Redirect /index to the main page
+	router.GET("/renderCustomer/:customer_id", handlers.HandleLandingPage) // Redirect /index to the main page
 
 	// Contact form submission
 	router.POST("/contact", handlers.HandleContactForm)

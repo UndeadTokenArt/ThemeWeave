@@ -44,19 +44,6 @@ func HandleCreateClient(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{"message": "Website created successfully", "website_id": website.ID})
 }
 
-func HandleLandingPage(c *gin.Context) {
-	data := gin.H{
-		"AgentName":     os.Getenv("AGENT_NAME"),
-		"AgentPortrait": "/api/v1/static/images/AudreyProfile.png",
-		"HeroImage":     "/api/v1/static/images/PortlandSkyline.jpg",
-		"email":         os.Getenv("AGENT_EMAIL"), // Set this in your environment
-		"phone":         os.Getenv("AGENT_PHONE"), // Set this in your environment
-	}
-
-	fmt.Printf("Rendering landing page with data: %+v\n", data)
-	c.HTML(http.StatusOK, "landingpage.tmpl", data)
-}
-
 // ContactForm represents the contact form data
 type ContactForm struct {
 	Name    string `form:"name" binding:"required"`
