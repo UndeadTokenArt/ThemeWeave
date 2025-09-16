@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portland Metro Real Estate | {{ .Name }}</title>
+    <title>{{ .TypeOfBusiness }} | {{ .Name }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
@@ -53,9 +53,9 @@
     <!-- Hero Section -->
     <section class="hero-bg text-white h-[70vh] flex items-center">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Structured Strategy, Superior Results.</h1>
-            <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto">Your expert guide to Portland's real estate market, delivering success with precision and care.</p>
-            <a href="#contact" class="bg-white text-emerald-600 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition duration-300">Begin Your Journey</a>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">{{ .hero1 }}</h1>
+            <p class="text-lg md:text-2xl mb-8 max-w-3xl mx-auto">{{ .hero2 }}</p>
+            <a href="#contact" class="bg-white text-emerald-600 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition duration-300">{{ .hero3 }}</a>
         </div>
     </section>
 
@@ -67,21 +67,21 @@
                     <img src="{{ .ClientPortrait }}" alt="Real Estate Agent Portrait" class="rounded-lg shadow-2xl w-full">
                 </div>
                 <div class="md:w-2/3">
-                    <h2 class="text-3xl font-bold mb-4 section-title inline-block">A Foundation of Experience & Trust</h2>
-                    <p class="text-gray-600 mb-4 text-lg">With over <strong>7 years</strong> dedicated to the Portland metro area's dynamic real estate landscape, I've had the privilege of navigating <strong>hundreds of transactions</strong> to successful conclusions. My approach is built on a dual commitment: the structural integrity of a well-executed plan and the soft touch of personalized, attentive service.</p>
-                    <p class="text-gray-600 mb-6 text-lg">I'm known for my creative problem-solving and an unwavering dedication to finding solutions for even the most complex challenges. Whether you are buying your first home or selling a luxury property, my goal is to ensure your experience is seamless, satisfying, and exceeds your expectations.</p>
+                    <h2 class="text-3xl font-bold mb-4 section-title inline-block">{{ .aboutBold }}</h2>
+                    <p class="text-gray-600 mb-4 text-lg">{{ .aboutText1 }}</p>
+                    <p class="text-gray-600 mb-6 text-lg">{{ .aboutText2 }}</p>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
                         <div class="bg-gray-100 p-6 rounded-lg">
-                            <h3 class="text-2xl font-bold text-emerald-600">7+</h3>
-                            <p class="text-gray-700">Years of Experience</p>
+                            <h3 class="text-2xl font-bold text-emerald-600">{{ .bodyBlock1B }}</h3>
+                            <p class="text-gray-700">{{ .bodyBlock1c }}</p>
                         </div>
                         <div class="bg-gray-100 p-6 rounded-lg">
-                            <h3 class="text-2xl font-bold text-emerald-600">300+</h3>
-                            <p class="text-gray-700">Successful Transactions</p>
+                            <h3 class="text-2xl font-bold text-emerald-600">{{ .bodyBlock2B }}</h3>
+                            <p class="text-gray-700">{{ .bodyBlock2c }}</p>
                         </div>
                         <div class="bg-gray-100 p-6 rounded-lg">
-                            <h3 class="text-2xl font-bold text-emerald-600">99%</h3>
-                            <p class="text-gray-700">Client Satisfaction</p>
+                            <h3 class="text-2xl font-bold text-emerald-600">{{ .bodyBlock3B }}</h3>
+                            <p class="text-gray-700">{{ .bodyBlock3C }}</p>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
     <!-- Services Section -->
     <section id="services" class="py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 section-title inline-block">Comprehensive Real Estate Services</h2>
+            <h2 class="text-3xl font-bold text-center mb-12 section-title inline-block">{{ .serviceSectionTitle }}</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Buyer Representation -->
                 <div class="bg-white p-8 rounded-lg shadow-lg text-center">

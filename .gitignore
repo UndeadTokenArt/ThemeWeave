@@ -40,6 +40,7 @@ go.work.sum
 *.webp
 
 ThemeWeave/ThemeweaveBackend/library/static/images
+ThemeweaveBackend/public
 # Editor/IDE
 # .idea/
 # .vscode/
