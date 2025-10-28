@@ -12,7 +12,7 @@ import (
 func HandleIndex(c *gin.Context) {
 	c.HTML(http.StatusOK, "WebInterface.tmpl", gin.H{
 		"title":   "Welcome to ThemeWeave",
-		"content": "",
+		"content": "This is the main landing page for ThemeWeave.",
 	})
 }
 
