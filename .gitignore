@@ -8,6 +8,8 @@ main
 *.dll
 *.so
 *.dylib
+ThemeWeave
+config.json
 
 # Test binary, built with `go test -c`
 *.test
@@ -44,3 +46,4 @@ ThemeweaveBackend/public
 # Editor/IDE
 # .idea/
 # .vscode/
+/ThemeweaveBackend/library/static
