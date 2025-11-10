@@ -1,0 +1,44 @@
+<!-- Template for inserting an image -->
+{{define "image"}}
+<img src="{{.Src}}" alt="{{.Alt}}" class="{{.Class}}" />
+{{end}}
+
+{{define "imageWithCaption"}}
+<figure>
+    <img src="{{.Src}}" alt="{{.Alt}}" class="{{.Class}}" />
+    <figcaption>{{.Caption}}</figcaption>
+</figure>
+{{end}}
+
+{{define "responsiveImage"}}
+<picture>
+    <source media="(max-width: 600px)" srcset="{{.SrcSmall}}">
+    <source media="(max-width: 1200px)" srcset="{{.SrcMedium}}">
+    <img src="{{.SrcLarge}}" alt="{{.Alt}}" class="{{.Class}}">
+</picture>
+{{end}}
+
+{{define "imageLink"}}
+<a href="{{.LinkURL}}">
+    <img src="{{.Src}}" alt="{{.Alt}}" class="{{.Class}}">
+</a>
+{{end}}
+
+{{define "backgroundImage"}}
+<div class="{{.Class}}" style="background-image: url('{{.Src}}');">
+    {{.Content}}
+</div>
+{{end}}
+
+{{define "imageGallery"}}
+<div class="image-gallery {{.Class}}">
+    {{range .Images}}
+        <div class="gallery-item">
+            <img src="{{.Src}}" alt="{{.Alt}}">
+            {{if .Caption}}
+            <div class="caption">{{.Caption}}</div>
+            {{end}}
+        </div>
+    {{end}}
+</div>
+{{end}}

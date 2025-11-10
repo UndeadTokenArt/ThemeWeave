@@ -1,0 +1,14 @@
+<!-- defines Highlighted Text -->
+{{define "highlightedText"}}
+<span class="highlighted {{.Class}}">{{.Text}}</span>
+{{end}}
+
+<!-- defines Animated Text -->
+{{define "animatedText"}}
+<span class="animated {{.AnimationClass}} {{.Class}}">{{.Text}}</span>
+{{end}}
+
+<!-- defines Text with Shadow Effect -->
+{{define "textWithShadow"}}
+<span class="text-shadow {{.Class}}">{{.Text}}</span>
+{{end}}

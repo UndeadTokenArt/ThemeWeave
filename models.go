@@ -15,3 +15,7 @@ type ConfigData struct {
 	Template       string `json:"template"`
 	Location       string `json:"location"`
 }
+
+type WebSiteData struct {
+	ID int `json:"id"`
+}
